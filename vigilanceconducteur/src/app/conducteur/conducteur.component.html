@@ -1,0 +1,191 @@
+
+
+
+  <h2>liste des conducteurs</h2>
+  <div class="pull-right">
+    <div class="btn-group">
+      <button pButton type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Ajouter Conducteur"></button>
+    </div>
+  </div>
+
+  <p-dialog header="Ajouter un conducteur" [(visible)]="display">
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newConducteur.Cin" pInputText />
+        <label for="inputtext">CIN</label>
+      </span>
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newConducteur.Nom" pInputText />
+        <label for="inputtext">NOM</label>
+      </span>
+    </div>
+   
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newConducteur.Prenom" pInputText />
+        <label for="inputtext">PRENOM</label>
+      </span>
+    </div>
+    
+    
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newConducteur.Email" pInputText />
+        <label for="inputtext">EMAIL</label>
+      </span>
+    </div>
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <p-calendar [(ngModel)]="newConducteur.DateNaissance"></p-calendar>
+        <label for="inputtext">DATENAISSANCE</label>
+      </span>
+    </div>
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newConducteur.TypePermis" pInputText />
+        <label for="inputtext">TYPEPERMIS</label>
+      </span>
+    </div>
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <p-calendar [(ngModel)]="newConducteur.DatePermis"></p-calendar>
+        <label for="inputtext">DATEPERMIS</label>
+      </span>
+    </div>
+
+    <button pButton type="button" label="Ajouter" class="p-button-text" (click)="createConducteur()"></button>
+
+
+</p-dialog>
+
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Cin</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>DateNaissance</th>
+        <th>TypePermis</th>
+        <th>DatePermis</th>
+        <th>Action</th>
+        <th>Etat</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+        <tr *ngFor="let conducteur of conducteurs">
+  
+            <td>{{conducteur.Cin}}</td>
+            <td>{{conducteur.Nom}}</td>
+            <td>{{conducteur.Prenom}}</td>
+            <td>{{conducteur.Email}}</td>
+            <td>{{conducteur.DateNaissance}}</td>
+            <td>{{conducteur.TypePermis}}</td>
+            <td>{{conducteur.DatePermis}}</td>
+            <td>
+                <button (click)="deleteConducteur(conducteur.id)">Delete</button>
+              <div class="pull-right">
+                <div class="btn-group">
+                  <button pButton type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Update"></button>
+                </div>
+              </div> 
+              
+            <p-dialog header="Update" [(visible)]="display">
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input type="text" [(ngModel)]="updateConducteur.Cin" pInputText />
+                  <label for="inputtext">CIN</label>
+                </span>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input type="text" [(ngModel)]="updateConducteur.Nom" pInputText />
+                  <label for="inputtext">NOM</label>
+                </span>
+              </div>
+             
+              
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input type="text" [(ngModel)]="updateConducteur.Prenom" pInputText />
+                  <label for="inputtext">PRENOM</label>
+                </span>
+              </div>
+              
+              
+              
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input type="text" [(ngModel)]="updateConducteur.Email" pInputText />
+                  <label for="inputtext">EMAIL</label>
+                </span>
+              </div>
+              
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <p-calendar [(ngModel)]="updateConducteur.DateNaissance"></p-calendar>
+                  <label for="inputtext">DATENAISSANCE</label>
+                </span>
+              </div>
+              
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input type="text" [(ngModel)]="updateConducteur.TypePermis" pInputText />
+                  <label for="inputtext">TYPEPERMIS</label>
+                </span>
+              </div>
+              
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <p-calendar [(ngModel)]="updateConducteur.DatePermis"></p-calendar>
+                  <label for="inputtext">DATEPERMIS</label>
+                </span>
+              </div>
+          
+              <button pButton type="button" label="Update" class="p-button-text" (click)="updateConducteur()"></button>
+          
+          
+          </p-dialog>  
+            </td>
+            <td></td>
+          
+          
+          </tr>
+    </tbody>
+  </table>
+
+  <p-table [value]="conducteurs">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Cin</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Date Naissance</th>
+            <th>Typde Permis</th>
+            <th>Date Permis</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-conducteur>
+        <tr>
+            <td>{{conducteur.Cin}}</td>
+            <td>{{conducteur.Nom}}</td>
+            <td>{{conducteur.Prenom}}</td>
+            <td>{{conducteur.Email}}</td>
+            <td>{{conducteur.DateNaissance}}</td>
+            <td>{{conducteur.TypePermis}}</td>
+            <td>{{conducteur.DatePermis}}</td>
+        </tr>
+    </ng-template>
+</p-table>

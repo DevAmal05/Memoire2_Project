@@ -1,0 +1,32 @@
+
+
+<h2>liste des villes</h2>
+<div class="pull-right">
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary">Ajouter</button>
+    <button type="button" class="btn btn-primary">Modifier</button>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Idv</th>
+      <th>Codepostal</th>
+      <th>Nom</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="myTable">
+    <tr  *ngFor="let ville of villes"> 
+      
+      <td>{{ville.Idv}}</td>
+      <td>{{ville.Codepostal}}</td>
+      <td>{{ville.Nom}}</td>
+      <td>
+        <button (click)="delete(ville.Idv)">Delete</button>
+    </td>
+  </tr>
+     
+  </tbody>
+</table>  

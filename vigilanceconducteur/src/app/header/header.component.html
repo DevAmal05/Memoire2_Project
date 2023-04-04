@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid" id="heder">
+       <ul class="nav navbar-nav navbar-left">
+         <li>
+         <h5>Bienvenue</h5>
+        </li>
+       </ul>
+       <ul class="nav navbar-nav">
+        <li routerLinkActive="active">
+            <a routerLink="accueil">Accueil</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+          <a routerLink="services">Services</a>
+      </li>
+  </ul>
+  <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+          <a routerLink="actualite">Actualite</a>
+      </li>
+  </ul>
+  <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+          <a routerLink="contact">Contact</a>
+      </li>
+  </ul>
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li routerLinkActive="active"  *ngIf="!isAuth">
+                <a routerLink="auth/signin">Sign In</a> 
+            </li>
+            <li>
+                <a (click)="onSignOut()" *ngIf="isAuth" style="cursor: pointer">Déconnexion</a>
+            </li>
+        </ul>
+      
+    </div>
+    
+</nav> 
+
+
+<!--
+<div id="login-page">
+    <div class="container">
+      <form class="form-login" action="index.html">
+        <h2 class="form-login-heading">sign in now</h2>
+        <div class="login-wrap">
+          <input type="text" class="form-control" placeholder="User ID" autofocus>
+          <br>
+          <input type="password" class="form-control" placeholder="Password">
+          <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Remember me
+            <span class="pull-right">
+            <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+            </span>
+            </label>
+          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+          <hr>
+        
+          <div class="registration">
+            Don't have an account yet?<br/>
+            <a class="" href="#">
+              Create an account
+              </a>
+          </div>
+        </div>   -->

@@ -1,0 +1,100 @@
+
+  <h2>List of devices</h2>
+  <div class="pull-right">
+    <div class="btn-group">
+      <button pButton type="button" (click)="showAddDialog()" icon="pi pi-info-circle" label="Add device"></button>
+    </div>
+  </div>
+
+  <p-dialog header="Add device" [(visible)]="displayAdd">
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newAppareil.Id" pInputText />
+        <label for="inputtext">Id</label>
+      </span>
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newAppareil.Type" pInputText />
+        <label for="inputtext">Type</label>
+      </span>
+    </div>
+   
+    
+    <div class="p-field p-col-12 p-md-4">
+      <span class="p-float-label">
+        <input type="text" [(ngModel)]="newAppareil.Numero" pInputText />
+        <label for="inputtext">Numero</label>
+      </span>
+    </div>
+    
+
+    <button pButton type="button" label="Ajouter" class="p-button-text" (click)="createAppareil()"></button>
+
+
+</p-dialog>
+
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Numero</th>
+        <th>Delete</th>
+        <th>update</th>
+       
+      </tr>
+    </thead>
+    <tbody id="myTable">
+        <tr *ngFor="let appareil of appareils">
+  
+            <td>{{appareil.Id}}</td>
+            <td>{{appareil.Type}}</td>
+            <td>{{appareil.Numero}}</td>
+            <td>
+                <button (click)="deleteAppareil(appareil.Id)">Delete</button>
+            </td>
+            <td>
+              <div class="pull-right">
+                <div class="btn-group">
+                  <button pButton type="button" (click)="showUpdateDialog(appareil)" icon="pi pi-info-circle" label="Update"></button>
+                </div>
+              </div>
+
+               <p-dialog header="update device" [(visible)]="displayUpdate">
+
+                <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                    <input type="text" [(ngModel)]="appareilUpdate.Id" pInputText />
+                    <label for="inputtext">Id</label>
+                  </span>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                    <input type="text" [(ngModel)]="appareilUpdate.Type" pInputText />
+                    <label for="inputtext">Type</label>
+                  </span>
+                </div>
+            
+                <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                    <input type="text" [(ngModel)]="appareilUpdate.Numero" pInputText />
+                    <label for="inputtext">Numero</label>
+                  </span>
+                </div>
+                <button pButton type="button" label="Update" class="p-button-text" (click)="updateAppareil(appareilUpdate)"></button>
+            
+            
+            </p-dialog>   
+            
+            </td>            
+        
+          
+          
+        </tr>
+    </tbody>
+</table>
+                
+                
+                
+          

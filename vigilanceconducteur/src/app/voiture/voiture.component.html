@@ -1,0 +1,39 @@
+
+
+<h2>liste des voitures</h2>
+<div class="pull-right">
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary">Ajouter</button>
+    <button type="button" class="btn btn-primary">Modifier</button>
+  </div>
+</div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Puissance</th>
+        <th>Marque</th>
+        <th>Type</th>
+        <th>Modele</th>
+        <th>Kilometrage</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr  *ngFor="let voiture of voitures"> 
+        
+        <td>{{voiture.Matricule}}</td>
+        <td>{{voiture.Puissance}}</td>
+        <td>{{voiture.Marque}}</td>
+        <td>{{voiture.Type}}</td>
+        <td>{{voiture.Modele}}</td>
+        <td>{{voiture.Kilometrage}}</td>
+        <td>
+          <button (click)="delete(voiture.Matricule)">Delete</button>
+      </td>
+    </tr>
+       
+    </tbody>
+  </table>  
+  

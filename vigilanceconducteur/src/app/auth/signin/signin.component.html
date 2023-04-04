@@ -1,0 +1,23 @@
+
+<div class="container">
+    <h1 class="display-4 mt-1 mb-0">Connexion</h1>
+     <hr class="mb-0 mt-5 ng-dark">
+      <div class="row">
+        <div class="col-sm-8 col-md-2 col-lg-4 mx-auto">
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" id="monform">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="example@example.com" formControlName="email">
+
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" class="form-control" placeholder="minimum 6 caracteres" formControlName="password">
+
+            </div>
+            <button class="btn btn-primary" type="submit" [disabled]="signInForm.invalid">Connexion</button>
+        </form>
+    </div>
+</div>
+</div>
+
